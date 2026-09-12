@@ -1,68 +1,263 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <!-- Metadata -->
+    <meta charset="UTF-8" />
+    <meta name="author" content="Mobolade J. Oladele" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Fall Limited Edition Sneakers | Premium comfort, modern design, and everyday style in one standout pair."
+    />
 
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-        
-        <title>Frontend Mentor | E-commerce product page</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32x32.png"
+    />
 
-        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-        <style>
-            .attribution { font-size: 0.6875rem; text-align: center; }
-            .attribution a { color: hsl(228, 45%, 44%); }
-        </style>
-    </head>
-    <body>
-        <!-- skip to main -->
-        <a href="#main">Skip to main content</a>
-        
-        <header>
-            <img src="assets/images/logo.svg" alt="">
-            <nav>
-                <ul>
-                    <li><a aria-current="page" href="index.html">Collections</a></li>
-                    <li><a href="index.html">Men</a></li>
-                    <li><a href="index.html">Women</a></li>
-                    <li><a href="index.html">About</a></li>
-                    <li><a href="index.html">Contact</a></li>
-                </ul>
-            </nav>
-            <div>
-                <button>
-                    <img src="assets/images/icon-cart.svg" alt="checkout icon">
-                </button>
-                <img src="assets/images/image-avatar.png" alt="">
+    <title>Frontend Mentor | E-commerce product page</title>
+
+    <!-- Scripts -->
+    <script src="js/components/nav.js" defer></script>
+    <script src="js/components/thumbnails.js" defer></script>
+    <script src="js/components/gallery.js" defer></script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!-- skip to main -->
+      <a class="skip-to-main | rounded-lg" href="#main">Skip to main content</a>
+
+      <header class="header">
+        <div class="header__wrapper">
+          <img class="logo" src="assets/images/logo.svg" alt="" />
+
+          <button
+            class="btn"
+            id="menu-toggle"
+            aria-label="Open menu"
+            aria-controls="primary-navigation"
+            aria-expanded="false"
+          >
+            <svg class="icon icon--menu" aria-hidden="true">
+              <use href="assets/icons/icons.svg#icon-menu" />
+            </svg>
+          </button>
+
+          <nav
+            class="nav"
+            id="primary-navigation"
+            aria-label="Primary navigation"
+          >
+            <ul class="nav__list" data-visible="false">
+              <li class="nav__item">
+                <a class="nav__link" aria-current="page" href="/"
+                  >Collections</a
+                >
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="/">Men</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="/">Women</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="/">About</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="/">Contact</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="header__actions | flex">
+            <button class="cart-button btn" aria-label="Open shopping cart">
+              <svg class="icon icon--cart" aria-hidden="true">
+                <use href="assets/icons/icons.svg#icon-cart"></use>
+              </svg>
+            </button>
+            <img
+              class="avatar"
+              src="assets/images/image-avatar.png"
+              width="100"
+              height="100"
+              alt=""
+            />
+          </div>
+        </div>
+      </header>
+
+      <main class="product-page" id="main">
+        <div class="product-page__wrapper | flex">
+          <div class="product-gallery">
+            <div class="product-gallery__main">
+              <button
+                class="btn product-gallery__navigation-button"
+                data-direction="previous"
+                aria-label="Show previous product image"
+              >
+                <svg class="icon icon--previous">
+                  <use href="assets/icons/icons.svg#icon-previous"></use>
+                </svg>
+              </button>
+
+              <button class="btn" aria-label="Open Gallery Modal">
+                <img
+                  class="product-gallery__main-image"
+                  src="assets/images/image-product-1.jpg"
+                  width="1000"
+                  height="1000"
+                  alt=""
+                />
+              </button>
+
+              <button
+                class="btn product-gallery__navigation-button"
+                data-direction="next"
+                aria-label="Show next product image"
+              >
+                <svg class="icon icon--next">
+                  <use href="assets/icons/icons.svg#icon-next"></use>
+                </svg>
+              </button>
             </div>
-        </header>
+            <p
+              class="sr-only"
+              id="gallery-status"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              Showing product image 1 of 4.
+            </p>
 
-        <main id="main">
-            <div class="image-carousel">
-                <img src="assets/images/image-product-1.jpg" alt="">
+            <div class="product-gallery__thumbnails | grid">
+              <button
+                class="product-gallery_actions btn active"
+                aria-label="Show product image 1"
+                aria-pressed="true"
+              >
+                <img
+                  src="assets/images/image-product-1-thumbnail.jpg"
+                  alt=""
+                  class="product-gallery__thumbnail"
+                  width="176"
+                  height="176"
+                />
+              </button>
+              <button
+                class="product-gallery_actions btn"
+                aria-label="Show product image 2"
+                aria-pressed="false"
+              >
+                <img
+                  src="assets/images/image-product-2-thumbnail.jpg"
+                  alt=""
+                  class="product-gallery__thumbnail"
+                  width="176"
+                  height="176"
+                />
+              </button>
+              <button
+                class="product-gallery_actions btn"
+                aria-label="Show product image 3"
+                aria-pressed="false"
+              >
+                <img
+                  src="assets/images/image-product-3-thumbnail.jpg"
+                  alt=""
+                  class="product-gallery__thumbnail"
+                  width="176"
+                  height="176"
+                />
+              </button>
+              <button
+                class="product-gallery_actions btn"
+                aria-label="Show product image 4"
+                aria-pressed="false"
+              >
+                <img
+                  src="assets/images/image-product-4-thumbnail.jpg"
+                  alt=""
+                  class="product-gallery__thumbnail"
+                  width="176"
+                  height="176"
+                />
+              </button>
             </div>
-            <section>
-                <p>Sneaker Company</p>
-                <h1>Fall Limited Edition Sneakers</h1>
-                <p>These low-profile sneakers are your perfect casual wear companion. Featuring a 
-        durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
-                <p>$125.00</p>
-                <p>50%</p>
-                <p>$250.00</p>
-                <div>
-                    <button><img src="assets/images/icon-minus.svg" alt=""></button>
-                    <p>0</p>
-                    <button><img src="assets/images/icon-plus.svg" alt=""></button>
-                </div>
-                <button>
-                    Add to cart
+          </div>
+
+          <section class="product">
+            <p class="product__brand | bold uppercase">Sneaker Company</p>
+            <h1 class="product__title">Fall Limited Edition Sneakers</h1>
+            <p class="product__description">
+              These low-profile sneakers are your perfect casual wear companion.
+              Featuring a durable rubber outer sole, they’ll withstand
+              everything the weather can offer.
+            </p>
+
+            <div class="product__pricing | flex">
+              <span class="product__price | bold">$125.00</span>
+              <span class="product__discount | bold | rounded-sm">50%</span>
+              <span class="product__original-price | bold | line-through"
+                >$250.00</span
+              >
+            </div>
+
+            <div class="product__actions flex">
+              <div class="quantity-selector | flex | rounded-md">
+                <button
+                  class="quantity-selector__button btn"
+                  aria-label="Decrease quantity"
+                >
+                  <svg class="icon icon--minus" aria-hidden="true">
+                    <use href="assets/icons/icons.svg#icon-minus"></use>
+                  </svg>
                 </button>
-            </section>
-        </main>
-   
-        <footer class="attribution">
-            Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-            Coded by <a href="https://github.com/MoboladeJOladele">Mobolade J. Oladele</a>.
-        </footer>
-    </body>
+                <output class="quantity-selector__value">0</output>
+                <button
+                  class="quantity-selector__button btn"
+                  aria-label="Increase quantity"
+                >
+                  <svg class="icon icon--plus" aria-hidden="true">
+                    <use href="assets/icons/icons.svg#icon-plus"></use>
+                  </svg>
+                </button>
+              </div>
+
+              <button class="product__add-to-cart btn | flex | rounded-md">
+                <svg
+                  class="icon icon--cart"
+                  aria-hidden="true"
+                  style="color: currentColor"
+                >
+                  <use href="assets/icons/icons.svg#icon-cart"></use>
+                </svg>
+                Add to cart
+              </button>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="attribution | text-center">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a
+        >. Coded by
+        <a href="https://github.com/MoboladeJOladele">Mobolade J. Oladele</a>.
+      </footer>
+    </div>
+  </body>
 </html>
