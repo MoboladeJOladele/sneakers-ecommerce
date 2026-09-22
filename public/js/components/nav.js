@@ -1,7 +1,7 @@
 "use strict";
 
-const navToggle = document.getElementById('menu-toggle');
 const navElement = document.getElementById('primary-navigation');
+const navToggle = document.querySelector('.menu-toggle');
 const navList = navElement.querySelector('.nav__list');
 const navIcon = navToggle.querySelector("use");
 

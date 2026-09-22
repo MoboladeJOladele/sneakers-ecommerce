@@ -1,0 +1,9 @@
+# Ignore everything
+/*
+
+# Keep the Git repository configuration
+!/.gitignore
+
+# Track the public directory
+!/public/
+!/public/**

@@ -21,11 +21,10 @@
 
     <!-- Scripts -->
     <script src="js/components/nav.js" defer></script>
-    <script src="js/components/thumbnails.js" defer></script>
     <script src="js/components/gallery.js" defer></script>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/styles.min.css" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,17 +36,118 @@
   </head>
 
   <body>
+    <dialog class="lightbox" aria-label="Product image gallery">
+      <div class="lightbox__content">
+        <button
+          class="btn lightbox__close"
+          aria-label="Close product image gallery"
+        >
+          <svg class="icon" aria-hidden="true">
+            <use href="assets/icons/icons.svg#icon-close"></use>
+          </svg>
+        </button>
+
+        <div class="lightbox__main">
+          <button
+            class="btn lightbox__navigation-button"
+            data-direction="previous"
+            aria-label="Show previous product image"
+          >
+            <svg class="icon icon--previous">
+              <use href="assets/icons/icons.svg#icon-previous"></use>
+            </svg>
+          </button>
+
+          <img
+            class="lightbox__main-image"
+            src="assets/images/image-product-1.jpg"
+            width="1000"
+            height="1000"
+            alt=""
+          />
+
+          <button
+            class="btn lightbox__navigation-button"
+            data-direction="next"
+            aria-label="Show next product image"
+          >
+            <svg class="icon icon--next">
+              <use href="assets/icons/icons.svg#icon-next"></use>
+            </svg>
+          </button>
+        </div>
+
+        <div class="lightbox__thumbnails | grid">
+
+            <button
+              class="btn lightbox__thumbnail-button active"
+              aria-label="Show product image 1"
+              aria-pressed="true"
+            >
+              <img
+                class="lightbox__thumbnail"
+                src="assets/images/image-product-1-thumbnail.jpg"
+                alt=""
+                width="176"
+                height="176"
+              />
+            </button>
+
+            <button
+              class="btn lightbox__thumbnail-button"
+              aria-label="Show product image 2"
+              aria-pressed="false"
+            >
+              <img
+                class="lightbox__thumbnail"
+                src="assets/images/image-product-2-thumbnail.jpg"
+                alt=""
+                width="176"
+                height="176"
+              />
+            </button>
+
+            <button
+              class="btn lightbox__thumbnail-button"
+              aria-label="Show product image 3"
+              aria-pressed="false"
+            >
+              <img
+                class="lightbox__thumbnail"
+                src="assets/images/image-product-3-thumbnail.jpg"
+                alt=""
+                width="176"
+                height="176"
+              />
+            </button>
+
+            <button
+              class="btn lightbox__thumbnail-button"
+              aria-label="Show product image 4"
+              aria-pressed="false"
+            >
+              <img
+                class="lightbox__thumbnail"
+                src="assets/images/image-product-4-thumbnail.jpg"
+                alt=""
+                width="176"
+                height="176"
+              />
+            </button>
+          </div>
+      </div>
+    </dialog>
+
     <div class="wrapper">
       <!-- skip to main -->
       <a class="skip-to-main | rounded-lg" href="#main">Skip to main content</a>
-
+      
       <header class="header">
         <div class="header__wrapper">
           <img class="logo" src="assets/images/logo.svg" alt="" />
 
           <button
-            class="btn"
-            id="menu-toggle"
+            class="btn menu-toggle"
             aria-label="Open menu"
             aria-controls="primary-navigation"
             aria-expanded="false"
@@ -100,21 +200,22 @@
         </div>
       </header>
 
-      <main class="product-page" id="main">
-        <div class="product-page__wrapper | flex">
-          <div class="product-gallery">
-            <div class="product-gallery__main">
+      <div class="site-content">
+        <main class="product-page" id="main">
+          <div class="product-page__wrapper | flex">
+            <div class="product-gallery">
+              <div class="product-gallery__main">
               <button
                 class="btn product-gallery__navigation-button"
                 data-direction="previous"
                 aria-label="Show previous product image"
               >
-                <svg class="icon icon--previous">
+                <svg class="icon icon--previous" aria-hidden="true">
                   <use href="assets/icons/icons.svg#icon-previous"></use>
                 </svg>
               </button>
 
-              <button class="btn" aria-label="Open Gallery Modal">
+              <button class="btn product-gallery__open-lightbox" aria-label="Open product image gallery">
                 <img
                   class="product-gallery__main-image"
                   src="assets/images/image-product-1.jpg"
@@ -129,7 +230,7 @@
                 data-direction="next"
                 aria-label="Show next product image"
               >
-                <svg class="icon icon--next">
+                <svg class="icon icon--next" aria-hidden="true">
                   <use href="assets/icons/icons.svg#icon-next"></use>
                 </svg>
               </button>
@@ -200,7 +301,7 @@
           </div>
 
           <section class="product">
-            <p class="product__brand | bold uppercase">Sneaker Company</p>
+            <p class="product__brand | fw-bold uppercase">Sneaker Company</p>
             <h1 class="product__title">Fall Limited Edition Sneakers</h1>
             <p class="product__description">
               These low-profile sneakers are your perfect casual wear companion.
@@ -209,9 +310,9 @@
             </p>
 
             <div class="product__pricing | flex">
-              <span class="product__price | bold">$125.00</span>
-              <span class="product__discount | bold | rounded-sm">50%</span>
-              <span class="product__original-price | bold | line-through"
+              <span class="product__price | fw-bold">$125.00</span>
+              <span class="product__discount | fw-bold | rounded-sm">50%</span>
+              <span class="product__original-price | fw-bold | line-through"
                 >$250.00</span
               >
             </div>
@@ -250,14 +351,15 @@
             </div>
           </section>
         </div>
-      </main>
+        </main>
 
-      <footer class="attribution | text-center">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a
-        >. Coded by
-        <a href="https://github.com/MoboladeJOladele">Mobolade J. Oladele</a>.
-      </footer>
+        <footer class="attribution | text-center">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a
+          >. Coded by
+          <a href="https://github.com/MoboladeJOladele">Mobolade J. Oladele</a>.
+        </footer>
+      </div>
     </div>
   </body>
 </html>
