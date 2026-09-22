@@ -1,0 +1,11 @@
+:root {
+    --black: hsl(0, 0%, 0%);
+    --blue-700: hsl(220, 13%, 13%);
+    --grayblue-100: hsl(223, 64%, 98%);
+    --grayblue-300: hsl(220, 22%, 81%);
+    --grayblue-400: hsl(220, 14%, 75%);
+    --grayblue-700: hsl(219, 9%, 45%);
+    --orange-100: hsl(25, 100%, 94%);
+    --orange-400: hsl(26, 100%, 55%);
+    --white: hsl(0, 0%, 100%);
+}

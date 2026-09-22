@@ -1,0 +1,21 @@
+.header__wrapper {
+    display: flex;
+    align-items: center;
+    padding-block: 1.6rem;
+    border-bottom: 1px solid var(--grayblue-400);
+}
+
+.header__actions {
+    margin-left: auto;
+    gap: 2rem;
+}
+
+@media (width > 48rem) {
+    .header {
+        margin-bottom: 4.8rem;
+    }
+
+    .logo {
+        margin-right: 2.4rem;
+    }
+}

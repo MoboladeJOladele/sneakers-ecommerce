@@ -1,0 +1,120 @@
+.lightbox {
+    position: absolute;
+    width: 32rem;
+    margin: 0 auto;
+    padding-block: 4rem 2rem;
+    border: 0;
+    background: transparent;
+    max-height: none;
+    overflow: visible;
+    
+    &[open] + .wrapper {
+        position: fixed;
+        inset: 0;
+    }
+
+    &::backdrop {
+        background-color: var(--black);
+        opacity: 0.75;
+    }
+}
+
+.lightbox__close {
+    display: block;
+    margin-inline-start: auto;
+    margin-block-end: 1rem;
+    padding: 0;
+    color: var(--white);
+    
+    .icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    &:hover {
+        color: var(--orange-400);
+    }
+
+    &:active {
+        translate: 0 1px;
+    }
+}
+
+.lightbox__main {
+    display: grid;
+    grid-template-areas: "stack";
+    place-items: center;
+
+    > * {
+        grid-area: stack;
+    }
+}
+
+.lightbox__main-image {
+    border-radius: 0.75rem;
+}
+
+.lightbox__navigation-button {
+    display: grid;
+    place-items: center;
+
+    width: 3.5rem;
+    height: 3.5rem;
+
+    border-radius: 50%;
+    background-color: var(--white);
+
+    &:hover .icon {
+        color: var(--orange-400);
+    }
+
+    &:active {
+        scale: 0.95;
+    }
+
+    &[data-direction="previous"] {
+        justify-self: start;
+        translate: -50%;
+    }
+    
+    &[data-direction="next"] {
+        justify-self: end;
+        translate: 50%;
+    }
+}
+
+.lightbox__thumbnails {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-block-start: 1.5rem;
+}
+
+.lightbox__thumbnail-button {
+    position: relative;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    
+    &:where(:hover, :focus-visible, .active)::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: var(--white);
+        opacity: 0.5;
+    }
+
+    &:active {
+        scale: 0.97;
+    }
+
+    &.active {
+        border-color: var(--orange-400);
+    }
+}
+
+@media (width <= 48rem) {
+    .lightbox {
+        display: none;
+    }
+}

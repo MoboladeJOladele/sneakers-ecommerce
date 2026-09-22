@@ -1,0 +1,12 @@
+.btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    transition: translate 100ms ease, scale 100ms ease;
+
+    &:focus-visible {
+        outline: 3px solid var(--orange-400);
+        outline-offset: 3px;
+    }
+}

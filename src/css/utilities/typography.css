@@ -1,0 +1,27 @@
+/* Text Decoration */
+.line-through {
+    text-decoration: line-through;
+}
+
+/* Text Transform */
+.lowercase {
+    text-transform: lowercase;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+/* Text Alignment */
+.text-center {
+    text-align: center;
+}
+
+/* Font Weight */
+.fw-bold {
+    font-weight: 700;
+}

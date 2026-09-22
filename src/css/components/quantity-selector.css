@@ -1,0 +1,16 @@
+.quantity-selector {
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 1rem .4rem;
+    background-color: var(--grayblue-100);
+    flex: 8rem;
+    justify-content: space-between;
+}
+
+.quantity-selector__button {
+    padding-block: 0;
+
+    &:active {
+        translate: 0 1px;
+    }
+}

@@ -1,0 +1,7 @@
+.attribution { 
+    font-size: 0.6875rem; 
+
+    > a {
+        color: hsl(228, 45%, 44%);
+    }
+}

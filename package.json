@@ -1,0 +1,23 @@
+{
+  "name": "main-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css:build": "node scripts/build-css.js",
+    "css:watch": "node scripts/build-css.js --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "postcss": "^8.5.26",
+    "postcss-cli": "^11.0.1",
+    "postcss-combine-media-query": "^2.1.0",
+    "postcss-import-glob": "^0.2.3",
+    "postcss-preset-env": "^11.5.3"
+  }
+}

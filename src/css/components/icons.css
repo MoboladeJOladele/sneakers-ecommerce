@@ -1,0 +1,32 @@
+.icon {
+    display: block;
+}
+
+.icon--cart,
+.icon--close,
+.icon--menu {
+    color: var(--grayblue-700);
+}
+
+.icon--delete {
+    color: var(--grayblue-300);
+}
+
+.icon--minus,
+.icon--plus {
+    color: var(--orange-400);
+}
+
+.icon--next,
+.icon--previous {
+    color: var(--blue-700);
+}
+
+.icon--cart { inline-size: 22px; block-size: 20px; }
+.icon--close { inline-size: 14px; block-size: 15px; }
+.icon--menu { inline-size: 16px; block-size: 15px; }
+.icon--delete { inline-size: 14px; block-size: 16px; }
+.icon--minus { inline-size: 12px; block-size: 4px;  }
+.icon--plus { inline-size: 12px; block-size: 12px; }
+.icon--next { inline-size: 13px; block-size: 18px; }
+.icon--previous { inline-size: 12px; block-size: 18px; }

@@ -1,0 +1,9 @@
+.cart-button {
+    &:where(:hover, :focus-visible) .icon {
+        color: var(--black);
+    }
+
+    &:active {
+        translate: 0 1px;
+    }
+}

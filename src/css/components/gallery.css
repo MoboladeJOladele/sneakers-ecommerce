@@ -1,0 +1,109 @@
+.product-gallery {
+    flex: 24rem;
+
+    .btn {
+        padding: 0;
+    }
+}
+
+.product-gallery__main {
+    display: grid;
+    grid-template-areas: "stack";
+    place-items: center;
+
+    > * {
+        grid-area: stack;
+    }
+}
+
+.product-gallery__navigation-button {
+    --_offset: .8rem;
+
+    display: grid;
+    place-items: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    border-radius: 50%;
+    background-color: var(--white);
+    z-index: 1;
+
+    &[data-direction="previous"] {
+        justify-self: start;
+        margin-inline-start: var(--_offset);
+
+        &:active {
+            translate: -2px;
+        }
+    }
+
+    &[data-direction="next"] {
+        justify-self: end;
+        margin-inline-end: var(--_offset);
+
+        &:active {
+            translate: 2px;
+        }
+    }
+}
+
+@media (width <= 48rem) {
+    .product-gallery__open-lightbox {
+        pointer-events: none;
+    }
+    
+    .product-gallery_actions {
+        display: none;
+    }
+}
+
+
+@media (width > 48rem) {   
+    .product-gallery__open-lightbox {
+        transition: all 60ms ease-in;
+
+        &:active {
+            scale: 0.985;
+        }
+    }
+
+    .product-gallery__main-image {
+        border-radius: 0.75rem;
+    }
+
+    .product-gallery__navigation-button {
+        display: none;
+    }
+
+    .product-gallery__thumbnails {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.6rem;
+        margin-block-start: 1.6rem;
+    }
+
+    .product-gallery_actions {
+        border: 2px solid transparent;
+        border-radius: 0.5rem;
+        position: relative;
+        overflow: hidden;
+
+        &:where(:hover, :focus-visible, .active)::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: var(--orange-100);
+            opacity: 0.4;
+        }
+
+        &:active {
+            scale: 0.97;
+        }
+        
+        &.active {
+            border-color: var(--orange-400);
+
+            &::after {
+                opacity: 0.6;
+            }            
+        }
+    }
+}

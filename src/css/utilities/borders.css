@@ -1,0 +1,16 @@
+/* Border Radius */
+.pill {
+    border-radius: 100vw;
+}
+
+.rounded-sm {
+    border-radius: 0.25rem; /* 4px */
+}
+
+.rounded-md {
+    border-radius: 0.5rem; /* 8px */
+}
+
+.rounded-lg {
+    border-radius: 0.75rem; /* 12px */
+}

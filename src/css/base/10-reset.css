@@ -1,0 +1,21 @@
+/* Resets */
+*, *::before, *::after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+html { 
+    box-sizing: border-box; 
+    scroll-behavior: smooth;
+}
+
+ul, ol {
+    list-style-type: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
