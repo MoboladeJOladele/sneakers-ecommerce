@@ -1,8 +1,3 @@
-.product-page__wrapper {
-    flex-wrap: wrap;
-    gap: 6.4rem;
-}
-
 .product {
     flex: 28rem;
     padding: 1.5rem;
@@ -10,6 +5,11 @@
     & > * + * {
         padding-block: .8rem;
     }
+}
+
+.product-page__wrapper {
+    flex-wrap: wrap;
+    gap: 1.6rem 6.4rem;
 }
 
 .product__brand {
@@ -27,12 +27,26 @@
     font-size: 2.4rem;
 }
 
-.product__pricing > * {
-    letter-spacing: 1px;
+.product__pricing {
+    & > * {
+        letter-spacing: 1px;
+    }
+
+    flex-wrap: wrap;
 }
 
 .product__price {
     font-size: 1.6rem;
+}
+
+.product__original-price {
+    margin-left: auto;
+}
+
+@media (width >= 48rem) {
+    .product__original-price {
+        flex-basis: 100%;
+    }
 }
 
 .product__discount {

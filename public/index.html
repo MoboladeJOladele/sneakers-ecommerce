@@ -22,6 +22,7 @@
     <!-- Scripts -->
     <script src="js/components/nav.js" defer></script>
     <script src="js/components/gallery.js" defer></script>
+    <script src="js/components/cart.js" defer></script>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.min.css" />
@@ -78,117 +79,202 @@
         </div>
 
         <div class="lightbox__thumbnails | grid">
+          <button
+            class="btn lightbox__thumbnail-button active"
+            aria-label="Show product image 1"
+            aria-pressed="true"
+          >
+            <img
+              class="lightbox__thumbnail"
+              src="assets/images/image-product-1-thumbnail.jpg"
+              alt=""
+              width="176"
+              height="176"
+            />
+          </button>
 
-            <button
-              class="btn lightbox__thumbnail-button active"
-              aria-label="Show product image 1"
-              aria-pressed="true"
-            >
-              <img
-                class="lightbox__thumbnail"
-                src="assets/images/image-product-1-thumbnail.jpg"
-                alt=""
-                width="176"
-                height="176"
-              />
-            </button>
+          <button
+            class="btn lightbox__thumbnail-button"
+            aria-label="Show product image 2"
+            aria-pressed="false"
+          >
+            <img
+              class="lightbox__thumbnail"
+              src="assets/images/image-product-2-thumbnail.jpg"
+              alt=""
+              width="176"
+              height="176"
+            />
+          </button>
 
-            <button
-              class="btn lightbox__thumbnail-button"
-              aria-label="Show product image 2"
-              aria-pressed="false"
-            >
-              <img
-                class="lightbox__thumbnail"
-                src="assets/images/image-product-2-thumbnail.jpg"
-                alt=""
-                width="176"
-                height="176"
-              />
-            </button>
+          <button
+            class="btn lightbox__thumbnail-button"
+            aria-label="Show product image 3"
+            aria-pressed="false"
+          >
+            <img
+              class="lightbox__thumbnail"
+              src="assets/images/image-product-3-thumbnail.jpg"
+              alt=""
+              width="176"
+              height="176"
+            />
+          </button>
 
-            <button
-              class="btn lightbox__thumbnail-button"
-              aria-label="Show product image 3"
-              aria-pressed="false"
-            >
-              <img
-                class="lightbox__thumbnail"
-                src="assets/images/image-product-3-thumbnail.jpg"
-                alt=""
-                width="176"
-                height="176"
-              />
-            </button>
-
-            <button
-              class="btn lightbox__thumbnail-button"
-              aria-label="Show product image 4"
-              aria-pressed="false"
-            >
-              <img
-                class="lightbox__thumbnail"
-                src="assets/images/image-product-4-thumbnail.jpg"
-                alt=""
-                width="176"
-                height="176"
-              />
-            </button>
-          </div>
+          <button
+            class="btn lightbox__thumbnail-button"
+            aria-label="Show product image 4"
+            aria-pressed="false"
+          >
+            <img
+              class="lightbox__thumbnail"
+              src="assets/images/image-product-4-thumbnail.jpg"
+              alt=""
+              width="176"
+              height="176"
+            />
+          </button>
+        </div>
       </div>
     </dialog>
 
     <div class="wrapper">
       <!-- skip to main -->
       <a class="skip-to-main | rounded-lg" href="#main">Skip to main content</a>
-      
+
       <header class="header">
         <div class="header__wrapper">
           <img class="logo" src="assets/images/logo.svg" alt="" />
 
+          <!-- Closed state -->
           <button
-            class="btn menu-toggle"
+            class="btn menu-toggle menu-toggle--open"
+            type="button"
             aria-label="Open menu"
             aria-controls="primary-navigation"
             aria-expanded="false"
           >
             <svg class="icon icon--menu" aria-hidden="true">
-              <use href="assets/icons/icons.svg#icon-menu" />
+              <use href="assets/icons/icons.svg#icon-menu"></use>
             </svg>
           </button>
 
-          <nav
-            class="nav"
+          <dialog
             id="primary-navigation"
+            class="mobile-menu"
             aria-label="Primary navigation"
           >
-            <ul class="nav__list" data-visible="false">
-              <li class="nav__item">
-                <a class="nav__link" aria-current="page" href="/"
-                  >Collections</a
-                >
-              </li>
-              <li class="nav__item">
-                <a class="nav__link" href="/">Men</a>
-              </li>
-              <li class="nav__item">
-                <a class="nav__link" href="/">Women</a>
-              </li>
-              <li class="nav__item">
-                <a class="nav__link" href="/">About</a>
-              </li>
-              <li class="nav__item">
-                <a class="nav__link" href="/">Contact</a>
-              </li>
-            </ul>
-          </nav>
+            <!-- Open state -->
+            <button
+              class="btn menu-toggle menu-toggle--close"
+              type="button"
+              aria-label="Close menu"
+              aria-controls="primary-navigation"
+            >
+              <svg class="icon icon--close" aria-hidden="true">
+                <use href="assets/icons/icons.svg#icon-close"></use>
+              </svg>
+            </button>
+
+            <nav class="nav">
+              <ul class="nav__list">
+                <li class="nav__item">
+                  <a class="nav__link" aria-current="page" href="/">
+                    Collections
+                  </a>
+                </li>
+
+                <li class="nav__item">
+                  <a class="nav__link" href="/">Men</a>
+                </li>
+
+                <li class="nav__item">
+                  <a class="nav__link" href="/">Women</a>
+                </li>
+
+                <li class="nav__item">
+                  <a class="nav__link" href="/">About</a>
+                </li>
+
+                <li class="nav__item">
+                  <a class="nav__link" href="/">Contact</a>
+                </li>
+              </ul>
+            </nav>
+          </dialog>
 
           <div class="header__actions | flex">
-            <button class="cart-button btn" aria-label="Open shopping cart">
+            <button
+              class="cart-button btn"
+              aria-label="Open shopping cart"
+              aria-controls="cart"
+              aria-expanded="false"
+              popovertarget="cart"
+            >
               <svg class="icon icon--cart" aria-hidden="true">
                 <use href="assets/icons/icons.svg#icon-cart"></use>
               </svg>
+
+              <span class="cart-button__count" aria-hidden="true" hidden>
+                0
+              </span>
             </button>
+
+            <div
+              class="cart-popover"
+              popover
+              id="cart"
+              aria-labelledby="cart-title"
+            >
+              <div class="cart-popover__header">
+                <h2 class="cart-popover__title" id="cart-title">Cart</h2>
+              </div>
+
+              <div class="cart-popover__body">
+                <p class="cart-popover__empty">Your cart is empty.</p>
+
+                <div class="cart-popover__item" hidden>
+                  <img
+                    class="cart-popover__image"
+                    src="assets/images/image-product-1-thumbnail.jpg"
+                    width="50"
+                    height="50"
+                    alt=""
+                  />
+
+                  <div class="cart-popover__details">
+                    <p class="cart-popover__product">
+                      Fall Limited Edition Sneakers
+                    </p>
+
+                    <p class="cart-popover__total">
+                      $125.00 x
+                      <span class="cart-popover__quantity">0</span>
+                      <strong>$0.00</strong>
+                    </p>
+                  </div>
+
+                  <button
+                    class="cart-popover__remove btn"
+                    type="button"
+                    aria-label="Remove sneakers from cart"
+                  >
+                    <svg class="icon icon--delete" aria-hidden="true">
+                      <use href="assets/icons/icons.svg#icon-delete"></use>
+                    </svg>
+                  </button>
+                </div>
+
+                <button
+                  class="cart-popover__checkout btn"
+                  type="button"
+                  hidden
+                >
+                  Checkout
+                </button>
+              </div>
+            </div>
+
             <img
               class="avatar"
               src="assets/images/image-avatar.png"
@@ -200,11 +286,10 @@
         </div>
       </header>
 
-      <div class="site-content">
-        <main class="product-page" id="main">
-          <div class="product-page__wrapper | flex">
-            <div class="product-gallery">
-              <div class="product-gallery__main">
+      <main class="product-page" id="main">
+        <div class="product-page__wrapper | flex">
+          <div class="product-gallery">
+            <div class="product-gallery__main">
               <button
                 class="btn product-gallery__navigation-button"
                 data-direction="previous"
@@ -215,7 +300,10 @@
                 </svg>
               </button>
 
-              <button class="btn product-gallery__open-lightbox" aria-label="Open product image gallery">
+              <button
+                class="btn product-gallery__open-lightbox"
+                aria-label="Open product image gallery"
+              >
                 <img
                   class="product-gallery__main-image"
                   src="assets/images/image-product-1.jpg"
@@ -235,6 +323,7 @@
                 </svg>
               </button>
             </div>
+
             <p
               class="sr-only"
               id="gallery-status"
@@ -258,6 +347,7 @@
                   height="176"
                 />
               </button>
+
               <button
                 class="product-gallery_actions btn"
                 aria-label="Show product image 2"
@@ -271,6 +361,7 @@
                   height="176"
                 />
               </button>
+
               <button
                 class="product-gallery_actions btn"
                 aria-label="Show product image 3"
@@ -284,6 +375,7 @@
                   height="176"
                 />
               </button>
+
               <button
                 class="product-gallery_actions btn"
                 aria-label="Show product image 4"
@@ -302,7 +394,9 @@
 
           <section class="product">
             <p class="product__brand | fw-bold uppercase">Sneaker Company</p>
+
             <h1 class="product__title">Fall Limited Edition Sneakers</h1>
+
             <p class="product__description">
               These low-profile sneakers are your perfect casual wear companion.
               Featuring a durable rubber outer sole, they’ll withstand
@@ -312,9 +406,9 @@
             <div class="product__pricing | flex">
               <span class="product__price | fw-bold">$125.00</span>
               <span class="product__discount | fw-bold | rounded-sm">50%</span>
-              <span class="product__original-price | fw-bold | line-through"
-                >$250.00</span
-              >
+              <span class="product__original-price | fw-bold | line-through">
+                $250.00
+              </span>
             </div>
 
             <div class="product__actions flex">
@@ -327,7 +421,11 @@
                     <use href="assets/icons/icons.svg#icon-minus"></use>
                   </svg>
                 </button>
-                <output class="quantity-selector__value">0</output>
+
+                <output class="quantity-selector__value" aria-live="polite">
+                  0
+                </output>
+
                 <button
                   class="quantity-selector__button btn"
                   aria-label="Increase quantity"
@@ -338,7 +436,10 @@
                 </button>
               </div>
 
-              <button class="product__add-to-cart btn | flex | rounded-md">
+              <button
+                class="product__add-to-cart btn | flex | rounded-md"
+                type="button"
+              >
                 <svg
                   class="icon icon--cart"
                   aria-hidden="true"
@@ -351,15 +452,18 @@
             </div>
           </section>
         </div>
-        </main>
+      </main>
 
-        <footer class="attribution | text-center">
-          Challenge by
-          <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a
-          >. Coded by
-          <a href="https://github.com/MoboladeJOladele">Mobolade J. Oladele</a>.
-        </footer>
-      </div>
+      <footer class="attribution | text-center">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge">
+          Frontend Mentor
+        </a>.
+        Coded by
+        <a href="https://github.com/MoboladeJOladele">
+          Mobolade J. Oladele
+        </a>.
+      </footer>
     </div>
   </body>
 </html>

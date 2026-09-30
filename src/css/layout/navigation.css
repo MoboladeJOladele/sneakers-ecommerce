@@ -1,90 +1,163 @@
 .nav__list {
     display: flex;
     gap: 1.6rem;
-    z-index: 99;
 }
 
 .nav__link {
     color: var(--grayblue-700);
     text-decoration: none;
-    position: relative;
 
     &[aria-current="page"] {
-        font-weight: 700;
+    font-weight: 700;
     }
 }
 
 @media (width <= 48rem) {
+    /* Menu buttons */
     .menu-toggle {
-        order: -1;
-        margin-right: .75rem;
-
         &:active {
             translate: 0 1px;
         }
+    }
 
-        &[aria-expanded="true"] {
-            position: absolute;
-            z-index: 999;
+    .menu-toggle--open {
+        order: -1;
+        margin-inline: .8rem 1.6rem;
+        anchor-name: --menu-toggle;
+    }
+
+    .menu-toggle--close {
+        position: fixed;
+
+        /* Fallback for browsers without Anchor Positioning */
+        inset: 2rem auto auto .8rem;
+    }
+
+    /* Anchor Positioning enhancement */
+    @supports (position-anchor: --menu-toggle) {
+        .menu-toggle--close {
+            position-anchor: --menu-toggle;
+            inset: anchor(top) auto auto anchor(left);
+            width: anchor-size(width);
+            height: anchor-size(height);
         }
     }
 
+    /* Menu button states */
+    body:has(#primary-navigation[open]) .menu-toggle--open {
+        pointer-events: none;
+
+        .icon {
+            visibility: hidden;
+        }
+    }
+
+    #primary-navigation:not([open]) .menu-toggle--close {
+        display: none;
+    }
+
+    /* Mobile navigation panel */
+    dialog#primary-navigation {
+        --mobile-menu-width: min(72%, 16rem);
+
+        position: fixed;
+        inset: 0 auto 0 0;
+
+        width: var(--mobile-menu-width);
+        height: 100dvh;
+        max-height: none;
+
+        margin: 0;
+        padding: 4.5rem 1.2rem 0;
+
+        border: none;
+        background-color: var(--white);
+    }
+
+    dialog#primary-navigation::backdrop {
+        background: transparent;
+    }
+
+    /* Mobile navigation links */
     .nav__list {
         flex-direction: column;
-        position: absolute;
-        inset: 0;
-        background-color: var(--white);
-        width: min(72%, 16rem);
-        padding: 4.5rem 1.2rem 0;
-        translate: -100%;
-        transition: translate 0.3s ease-out;
-
-        &[data-visible="true"] {
-            translate: 0;
-        }
+        gap: 1.6rem;
     }
 
-    
     .nav__link {
         color: var(--black);
-        
+
         &[aria-current="page"] {
             text-decoration: underline;
-            text-decoration-thickness: 0.18em;
-            text-underline-offset: 0.25em;
+            text-decoration-thickness: .18em;
+            text-underline-offset: .25em;
         }
-    
+
         &:not([aria-current="page"]):hover {
             text-decoration: underline;
-            text-decoration-thickness: 0.12em;
-            text-underline-offset: 0.2em;
+            text-decoration-thickness: .12em;
+            text-underline-offset: .2em;
         }
     }
 }
 
 @media (width > 48rem) {
+    /* Hide mobile menu controls */
     .menu-toggle {
         display: none;
     }
 
+    /* Reset dialog to normal navigation */
+    dialog#primary-navigation {
+        display: block;
+
+        position: static;
+        width: auto;
+        height: auto;
+        max-height: none;
+
+        margin: 0;
+        padding: 0;
+
+        border: none;
+        background: none;
+    }
+
+    dialog#primary-navigation::backdrop {
+        display: none;
+    }
+
+    /* Desktop navigation */
+    .nav__list {
+        height: 100%;
+    }
+
     .nav__link {
+        position: relative;
+        color: var(--grayblue-700);
+        text-decoration: none;
+
+        &[aria-current="page"] {
+            font-weight: 700;
+        }
+
         &::after {
             content: "";
             position: absolute;
-            left: 0;
-            bottom: -2.5rem;
-            width: 100%;
-            height: 0.25rem;
+            inset: auto 0 -2.5rem;
+
+            height: .25rem;
             border-radius: 100vw;
+
             opacity: 0;
             transition: opacity 150ms ease;
         }
-    
+
         &:hover::after {
             opacity: 1;
             background: var(--grayblue-300);
         }
-        
+
         &[aria-current="page"]::after {
             opacity: 1;
             background: currentColor;

@@ -8,7 +8,19 @@
 }
 
 .quantity-selector__button {
+    position: relative;
     padding-block: 0;
+    
+    &::before {
+        content: "";
+        position: absolute;
+        inset: -16px -8px;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.4;
+    }
 
     &:active {
         translate: 0 1px;

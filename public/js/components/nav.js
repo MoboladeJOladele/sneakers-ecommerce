@@ -1,26 +1,29 @@
 "use strict";
 
-const navElement = document.getElementById('primary-navigation');
-const navToggle = document.querySelector('.menu-toggle');
-const navList = navElement.querySelector('.nav__list');
-const navIcon = navToggle.querySelector("use");
+const dialog = document.getElementById("primary-navigation");
+const openButton = document.querySelector(".menu-toggle--open");
+const closeButton = dialog.querySelector(".menu-toggle--close");
 
-navToggle.addEventListener('click', function () {
-    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+openButton.addEventListener("click", () => {
+    dialog.showModal();
+});
 
-    this.setAttribute('aria-expanded', !isExpanded);
+closeButton.addEventListener("click", () => {
+    dialog.close();
+});
 
-    navList.dataset.visible = !isExpanded;
+dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+        dialog.close();
+    }
+});
 
-    const icon = !isExpanded ? "#icon-close" : "#icon-menu";
+dialog.querySelectorAll(".nav__link").forEach((link) => {
+    link.addEventListener("click", () => {
+        dialog.close();
+    });
+});
 
-    navIcon.setAttribute(
-        "href",
-        `assets/icons/icons.svg${icon}`
-    );
-
-    this.setAttribute(
-        "aria-label",
-        isExpanded ? "Open menu" : "Close menu"
-    );
+dialog.addEventListener("toggle", () => {
+    openButton.setAttribute("aria-expanded", dialog.open);
 });

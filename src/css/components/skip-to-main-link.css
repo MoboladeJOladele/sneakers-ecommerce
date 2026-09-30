@@ -16,3 +16,20 @@
         top: 1rem;
     }
 }
+
+@keyframes skip-target-highlight {
+    0%,
+    99% {
+        outline: 3px solid var(--grayblue-700);
+        outline-offset: 0.5rem;
+    }
+
+    100% {
+        outline: none;
+    }
+}
+
+#main:target {
+    scroll-margin-top: 1rem;
+    animation: skip-target-highlight 4s steps(1, end) forwards;
+}

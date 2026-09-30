@@ -5,11 +5,11 @@
 
 .flex {
     display: flex;
-    align-items: center;
 }
 
 .flex,
 .grid {
+    align-items: center;
     gap: 1rem;
 }
 
