@@ -9,7 +9,7 @@
 
 .product-page__wrapper {
     flex-wrap: wrap;
-    gap: 1.6rem 6.4rem;
+    gap: .8rem 6.4rem;
 }
 
 .product__brand {
@@ -43,7 +43,13 @@
     margin-left: auto;
 }
 
-@media (width >= 48rem) {
+@media (width <= 48rem) {
+    .product {
+        padding-block-end: 0;
+    }
+}
+
+@media (width > 48rem) {
     .product__original-price {
         flex-basis: 100%;
     }

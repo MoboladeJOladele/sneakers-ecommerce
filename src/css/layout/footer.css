@@ -1,3 +1,9 @@
 footer {
-    margin-block: 2.8rem 2rem;
+    margin-block: var(--space-m-l) var(--space-s-m);
+}
+
+@media (width <= 48rem) {
+    footer {
+        margin-block: var(--space-m-l);
+    }
 }

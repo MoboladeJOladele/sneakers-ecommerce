@@ -88,6 +88,8 @@
 @media (width <= 48rem) {
 	.cart-popover {
 		inset-block-start: 4.75rem;
+		inset-inline: 0.5rem;
 		inset-inline-end: 0.5rem;
+		inline-size: auto;
 	}
 }

@@ -1,5 +1,6 @@
 .attribution { 
-    font-size: 0.6875rem; 
+    font-size: 0.6875rem;
+    padding-inline: 1.2rem;
 
     > a {
         color: hsl(228, 45%, 44%);

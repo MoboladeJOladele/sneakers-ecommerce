@@ -23,7 +23,7 @@
     place-items: center;
     inline-size: 2.75rem;
     block-size: 2.75rem;
-    border-radius: 50%;
+    border-radius: 100vw;
     background-color: var(--white);
     z-index: 1;
 

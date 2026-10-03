@@ -1,18 +1,21 @@
 .header__wrapper {
+    --header-block-padding: clamp(1rem, 0.4rem + 1.5vw, 1.6rem);
+    --nav-indicator-offset: calc(var(--header-block-padding) + clamp(0.25rem, 1vw, 0.75rem) + 2px);
+
     display: flex;
     align-items: center;
-    padding-block: 1.6rem;
+    padding-block: var(--header-block-padding);
     border-bottom: 1px solid var(--grayblue-400);
 }
 
 .header__actions {
     margin-left: auto;
-    gap: clamp(0.5625rem, 0.4091rem + 0.6818vw, 0.9375rem);
+    gap: clamp(1rem, 0.5rem + 2vw, 2rem);
 }
 
 @media (width > 48rem) {
     .header {
-        margin-bottom: 4.4rem;
+        margin-bottom: clamp(2rem, 1rem + 4vw, 4.4rem);
     }
 
     .logo {
