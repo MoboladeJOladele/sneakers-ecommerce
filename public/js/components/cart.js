@@ -4,6 +4,7 @@ const cart = {
 	button: document.querySelector(".cart-button"),
 	popover: document.querySelector("#cart"),
 	count: document.querySelector(".cart-button__count"),
+	status: document.querySelector("#cart-status"),
 	empty: document.querySelector(".cart-popover__empty"),
 	item: document.querySelector(".cart-popover__item"),
 	quantity: document.querySelector(".cart-popover__quantity"),
@@ -28,8 +29,18 @@ const formatPrice = (amount) => `$${amount.toFixed(2)}`;
 const render = () => {
 	const hasItems = cartQuantity > 0;
 
+	cart.button.setAttribute(
+	"aria-label",
+	hasItems
+		? `Open shopping cart, ${cartQuantity} items`
+		: "Open shopping cart"
+	);
+
 	product.quantity.value = selectedQuantity;
-	product.buttons[0].disabled = selectedQuantity === 0;
+	product.buttons[0].setAttribute(
+		"aria-disabled",
+		String(selectedQuantity === 0)
+	);
 
 	cart.count.textContent = cartQuantity;
 	cart.count.hidden = !hasItems;
@@ -65,6 +76,10 @@ product.add.addEventListener("click", () => {
 
 	cartQuantity += selectedQuantity;
 	selectedQuantity = 0;
+
+	cart.status.textContent =
+		`Cart now contains ${cartQuantity} ${cartQuantity === 1 ? "item" : "items"}.`;
+
 	render();
 
 	if (!cart.popover.matches(":popover-open")) {

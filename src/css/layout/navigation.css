@@ -110,8 +110,12 @@
     dialog#primary-navigation {
         display: block;
         position: static;
-
         border: none;
+    }
+
+    .nav__list {
+        flex-wrap: nowrap;
+        gap: clamp(.75rem, 2vw, 1.6rem);
     }
 
     .nav__link {
@@ -119,6 +123,7 @@
         color: var(--grayblue-700);
         line-height: 1.5rem;
         text-decoration: none;
+        white-space: nowrap;
 
         &[aria-current="page"] {
             font-weight: 700;

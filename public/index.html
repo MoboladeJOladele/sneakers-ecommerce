@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Fall Limited Edition Sneakers | Premium comfort, modern design, and everyday style in one standout pair."
+      content="Explore the Fall Limited Edition Sneakers: low-profile everyday style, a durable rubber sole, and a clean, modern design."
     />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="canonical" href="https://sneakers-ecommerce-app.pages.dev/" />
 
     <link
       rel="icon"
@@ -17,7 +20,48 @@
       href="assets/images/favicon-32x32.png"
     />
 
-    <title>Frontend Mentor | E-commerce product page</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Sneakers" />
+    <meta
+      property="og:title"
+      content="Fall Limited Edition Sneakers | Sneakers"
+    />
+    <meta
+      property="og:description"
+      content="Explore the Fall Limited Edition Sneakers: low-profile everyday style, a durable rubber sole, and a clean, modern design."
+    />
+    <meta
+      property="og:url"
+      content="https://sneakers-ecommerce-app.pages.dev/"
+    />
+    <meta
+      property="og:image"
+      content="https://sneakers-ecommerce-app.pages.dev/assets/images/og-image.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="Social preview for the Fall Limited Edition Sneakers with a product photo and a Shop Sneakers button"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Fall Limited Edition Sneakers | Sneakers"
+    />
+    <meta
+      name="twitter:description"
+      content="Explore the Fall Limited Edition Sneakers: low-profile everyday style, a durable rubber sole, and a clean, modern design."
+    />
+    <meta
+      name="twitter:image"
+      content="https://sneakers-ecommerce-app.pages.dev/assets/images/og-image.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Social preview for the Fall Limited Edition Sneakers with a product photo and a Shop Sneakers button"
+    />
+
+    <title>Fall Limited Edition Sneakers | Sneakers</title>
 
     <!-- Scripts -->
     <script src="js/components/nav.js" defer></script>
@@ -64,7 +108,7 @@
             src="assets/images/image-product-1.jpg"
             width="1000"
             height="1000"
-            alt=""
+            alt="Two sneakers on an orange background, one showing its sole"
           />
 
           <button
@@ -81,7 +125,7 @@
         <div class="lightbox__thumbnails | grid">
           <button
             class="btn lightbox__thumbnail-button active"
-            aria-label="Show product image 1"
+            aria-label="Show image 1: Two sneakers on an orange background, one showing its sole"
             aria-pressed="true"
           >
             <img
@@ -95,7 +139,7 @@
 
           <button
             class="btn lightbox__thumbnail-button"
-            aria-label="Show product image 2"
+            aria-label="Show image 2: A pair of sneakers on stacked stones with branches in the foreground"
             aria-pressed="false"
           >
             <img
@@ -109,7 +153,7 @@
 
           <button
             class="btn lightbox__thumbnail-button"
-            aria-label="Show product image 3"
+            aria-label="Show image 3: A sneaker balanced on two stacked stones"
             aria-pressed="false"
           >
             <img
@@ -123,7 +167,7 @@
 
           <button
             class="btn lightbox__thumbnail-button"
-            aria-label="Show product image 4"
+            aria-label="Show image 4: Side view of a sneaker above two stacked stones"
             aria-pressed="false"
           >
             <img
@@ -144,7 +188,7 @@
 
       <header class="header">
         <div class="header__wrapper">
-          <img class="logo" src="assets/images/logo.svg" alt="" />
+          <img class="logo" src="assets/images/logo.svg" alt="sneakers" />
 
           <!-- Closed state -->
           <button
@@ -273,6 +317,13 @@
                   Checkout
                 </button>
               </div>
+
+              <p
+                class="sr-only"
+                id="cart-status"
+                role="status"
+                aria-atomic="true"
+              ></p>
             </div>
 
             <img
@@ -309,7 +360,7 @@
                   src="assets/images/image-product-1.jpg"
                   width="1000"
                   height="1000"
-                  alt=""
+                  alt="Two sneakers on an orange background, one showing its sole"
                 />
               </button>
 
@@ -336,7 +387,7 @@
             <div class="product-gallery__thumbnails | grid">
               <button
                 class="product-gallery_actions btn active"
-                aria-label="Show product image 1"
+                aria-label="Show image 1: Two sneakers on an orange background, one showing its sole"
                 aria-pressed="true"
               >
                 <img
@@ -350,7 +401,7 @@
 
               <button
                 class="product-gallery_actions btn"
-                aria-label="Show product image 2"
+                aria-label="Show image 2: A pair of sneakers on stacked stones with branches in the foreground"
                 aria-pressed="false"
               >
                 <img
@@ -364,7 +415,7 @@
 
               <button
                 class="product-gallery_actions btn"
-                aria-label="Show product image 3"
+                aria-label="Show image 3: A sneaker balanced on two stacked stones"
                 aria-pressed="false"
               >
                 <img
@@ -378,7 +429,7 @@
 
               <button
                 class="product-gallery_actions btn"
-                aria-label="Show product image 4"
+                aria-label="Show image 4: Side view of a sneaker above two stacked stones"
                 aria-pressed="false"
               >
                 <img
@@ -443,7 +494,6 @@
                 <svg
                   class="icon icon--cart"
                   aria-hidden="true"
-                  style="color: currentColor"
                 >
                   <use href="assets/icons/icons.svg#icon-cart"></use>
                 </svg>

@@ -1,6 +1,13 @@
 "use strict";
 
-let imageID = 1;
+let imageIndex = 1;
+
+const imageDescriptions = [
+    "Two sneakers on an orange background, one showing its sole",
+    "A pair of sneakers on stacked stones with branches in the foreground",
+    "A sneaker balanced on two stacked stones",
+    "Side view of a sneaker above two stacked stones",
+];
 
 // Normal gallery
 const featuredImageEl = document.querySelector(
@@ -45,13 +52,16 @@ const lightboxThumbnailButtons = document.querySelectorAll(
 
 // Update both galleries
 const updateImage = () => {
-    const imageSource = `assets/images/image-product-${imageID}.jpg`;
+    const imageSource = `assets/images/image-product-${imageIndex}.jpg`;
+    const imageDescription = imageDescriptions[imageIndex - 1];
 
     // Normal gallery
     featuredImageEl.src = imageSource;
+    featuredImageEl.alt = imageDescription;
 
     // Lightbox
     lightboxImageEl.src = imageSource;
+    lightboxImageEl.alt = imageDescription;
 
     // Update active thumbnails
     updateActiveThumbnails();
@@ -62,7 +72,7 @@ const updateImage = () => {
 const updateActiveThumbnails = () => {
     const updateThumbnails = (buttons) => {
         buttons.forEach((button, index) => {
-            const isActive = index + 1 === imageID;
+            const isActive = index + 1 === imageIndex;
 
             button.classList.toggle("active", isActive);
             button.setAttribute("aria-pressed", isActive);
@@ -73,16 +83,16 @@ const updateActiveThumbnails = () => {
     updateThumbnails(lightboxThumbnailButtons);
 
     galleryStatus.textContent =
-        `Showing product image ${imageID} of ${TOTAL_IMAGES}.`;
+        `Showing product image ${imageIndex} of ${TOTAL_IMAGES}.`;
 };
 
 
 // Next image
 const displayNextImage = () => {
-    imageID++;
+    imageIndex++;
 
-    if (imageID > TOTAL_IMAGES) {
-        imageID = 1;
+    if (imageIndex > TOTAL_IMAGES) {
+        imageIndex = 1;
     }
 
     updateImage();
@@ -91,10 +101,10 @@ const displayNextImage = () => {
 
 // Previous image
 const displayPreviousImage = () => {
-    imageID--;
+    imageIndex--;
 
-    if (imageID < 1) {
-        imageID = TOTAL_IMAGES;
+    if (imageIndex < 1) {
+        imageIndex = TOTAL_IMAGES;
     }
 
     updateImage();
@@ -122,7 +132,7 @@ setupNavigation(lightboxControls);
 const setupThumbnails = (buttons) => {
     buttons.forEach((button, index) => {
         button.addEventListener("click", () => {
-            imageID = index + 1;
+            imageIndex = index + 1;
             updateImage();
         });
     });
@@ -142,3 +152,13 @@ openLightboxButton.addEventListener("click", () => {
 closeLightboxButton.addEventListener("click", () => {
     lightbox.close();
 });
+
+
+const desktopMediaQuery = window.matchMedia("(width > 48rem)");
+
+const syncLightboxTrigger = () => {
+    openLightboxButton.inert = !desktopMediaQuery.matches;
+};
+
+desktopMediaQuery.addEventListener("change", syncLightboxTrigger);
+syncLightboxTrigger();

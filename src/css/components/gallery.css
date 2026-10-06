@@ -1,5 +1,7 @@
 .product-gallery {
-    flex: 24rem;
+    width: min(100%, 36rem);
+    min-width: 0;
+    justify-self: center;
 
     .btn {
         padding: 0;
@@ -47,10 +49,6 @@
 }
 
 @media (width <= 48rem) {
-    .product-gallery__open-lightbox {
-        pointer-events: none;
-    }
-    
     .product-gallery_actions {
         display: none;
     }
@@ -59,7 +57,7 @@
 
 @media (width > 48rem) {   
     .product-gallery__open-lightbox {
-        transition: all 60ms ease-in;
+        transition: scale 60ms ease-in;
 
         &:active {
             scale: 0.985;
@@ -105,5 +103,11 @@
                 opacity: 0.6;
             }            
         }
+    }
+}
+
+@media (width >= 56rem) {
+    .product-gallery {
+        width: auto;
     }
 }
