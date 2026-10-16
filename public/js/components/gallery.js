@@ -147,10 +147,27 @@ openLightboxButton.addEventListener("click", () => {
     lightbox.showModal();
 });
 
-
 // Close lightbox
 closeLightboxButton.addEventListener("click", () => {
     lightbox.close();
+});
+
+// Close lightbox when clicking outside the dialog content (on the backdrop)
+lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+        lightbox.close();
+    }
+});
+
+// Keyboard arrow key navigation when lightbox is open
+window.addEventListener("keydown", (event) => {
+    if (!lightbox.open) return;
+
+    if (event.key === "ArrowRight") {
+        displayNextImage();
+    } else if (event.key === "ArrowLeft") {
+        displayPreviousImage();
+    }
 });
 
 

@@ -1,6 +1,7 @@
 .cart-button {
-    &:where(:hover, :focus-visible) .icon {
-        color: var(--black);
+    &:where(:hover, :focus-visible) .icon,
+    &[aria-expanded="true"] .icon {
+        color: var(--blue-700);
     }
 
     &:active {

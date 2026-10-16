@@ -11,6 +11,7 @@ const cart = {
 	total: document.querySelector(".cart-popover__total strong"),
 	checkout: document.querySelector(".cart-popover__checkout"),
 	remove: document.querySelector(".cart-popover__remove"),
+	title: document.querySelector("#cart-title"),
 };
 
 const product = {
@@ -37,6 +38,7 @@ const render = () => {
 	);
 
 	product.quantity.value = selectedQuantity;
+	product.buttons[0].disabled = selectedQuantity === 0;
 	product.buttons[0].setAttribute(
 		"aria-disabled",
 		String(selectedQuantity === 0)
@@ -87,9 +89,21 @@ product.add.addEventListener("click", () => {
 	}
 });
 
+// Announce removal to screen readers
 cart.remove.addEventListener("click", () => {
 	cartQuantity = 0;
+	cart.status.textContent = "Your cart is now empty.";
 	render();
+	cart.title.focus();
+});
+
+// Handle checkout button click
+cart.checkout.addEventListener("click", () => {
+	cartQuantity = 0;
+	render();
+	alert("Thank you for your order! Your sneakers are on the way.");
+	cart.popover.hidePopover();
+	cart.button.focus();
 });
 
 render();

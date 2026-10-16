@@ -130,6 +130,12 @@ footer {
   margin-left: auto;
   gap: clamp(1rem,.5rem + 2vw,2rem)
 }
+@media (max-width:48rem) {
+  .header__wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem
+  }
+}
 @media (min-width:48.001rem) {
   .header {
     margin-bottom: clamp(2rem,1rem + 4vw,4.4rem)
@@ -308,8 +314,9 @@ footer {
   outline: 3px solid var(--orange-400);
   outline-offset: 3px
 }
-.cart-button:where(:hover,:focus-visible) .icon {
-  color: var(--black)
+.cart-button:where(:hover,:focus-visible) .icon,
+.cart-button[aria-expanded=true] .icon {
+  color: var(--blue-700)
 }
 .cart-button:active {
   translate: 0 1px
